@@ -1,7 +1,7 @@
 node('maven-label') {
    def mvnHome
    stage('Preparation') { 
-      git credentialsId: 'devops', url: 'git@github.com:kelly-randd/visacard-app.git'           
+      git credentialsId: 'devops', url: 'https://github.com/kelly-randd/visacard-app.git'           
       mvnHome = tool 'maven'
    }
    stage('Build') {
