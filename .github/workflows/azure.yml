@@ -6,7 +6,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: Set env
-      run: echo ::set-env name=GITHUB_SHA_SHORT::$(echo $GITHUB_SHA | cut -c 1-6)
-    - name: Test
-      run: echo $GITHUB_SHA_SHORT
+    - name: Read version
+      id: package
+      uses: juliangruber/read-file-action@v1
+      with:
+        path: ./SandDrive.Connect/SandDrive.Connect.csproj
+    - name: Echo version
+      run: |
+             version=$(echo ${{ steps.package.outputs.content }} ) 
+             #| grep Version | awk -F> '{print $2}' | awk -F< '{print $2}')
+             echo $version  
+
