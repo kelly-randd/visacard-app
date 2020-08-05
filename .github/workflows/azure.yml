@@ -13,5 +13,5 @@ jobs:
         path: ./pom.xml
     - name: Echo version
       run: |
-             ver=$(${{ steps.package.outputs.content }} | tr ' ' '\n' | grep version | awk -F> '{print $2}' | awk -F< '{print $2}')
+             ver=$( tr ' ' '\n' | grep Version | awk -F> '{print $2}' | awk -F< '{print $2}' <<< ${{ steps.package.outputs.content }} )
               echo $ver
