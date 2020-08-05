@@ -13,5 +13,5 @@ jobs:
         path: ./pom.xml
     - name: Echo version
       run: |
-             ver=$( cat pom.xml |grep version | awk -F\> '{print $2}' | awk -F\< '{print $2}'  ) 
+             ver=$( cat pom.xml |grep version | awk -F\> '{print $2}' | awk -F\< '{print $1}'  ) 
               echo $ver
