@@ -13,5 +13,5 @@ jobs:
         path: ./pom.xml
     - name: Echo version
       run: |
-             version=$(echo ${{ steps.package.outputs.content }} )
+             version=$( ${{ steps.package.outputs.content }} | grep Version )
 
