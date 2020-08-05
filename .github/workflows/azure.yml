@@ -10,7 +10,7 @@ jobs:
       id: package
       uses: juliangruber/read-file-action@v1
       with:
-        path: ./SandDrive.Connect/SandDrive.Connect.csproj
+        path: ./pom.xml
     - name: Echo version
       run: |
              version=$(echo ${{ steps.package.outputs.content }} ) 
