@@ -1,4 +1,4 @@
-#test
+#test  #| grep Version | awk -F> '{print $2}' | awk -F< '{print $2}')
 name: my workflow
 on: push
 jobs:
@@ -14,6 +14,6 @@ jobs:
     - name: Echo version
       run: |
              version=$(echo ${{ steps.package.outputs.content }} ) 
-             #| grep Version | awk -F> '{print $2}' | awk -F< '{print $2}')
+            
              echo $version  
 
